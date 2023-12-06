@@ -1,10 +1,11 @@
 package src;
 
-public interface MyList<T> {
+public interface MyList {
+    Object get(int index);
     void clear();
     int size();
-    void add(T element);
-    void addAt(int index,T element);
-    void remove(T element);
+    void add(Object element);
+    void addAt(int index,Object element);
+    void remove(Object element);
     void removeAt(int index);
 }
