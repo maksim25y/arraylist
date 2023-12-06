@@ -6,6 +6,6 @@ public interface MyList {
     int size();
     void add(Object element);
     void addAt(int index,Object element);
-    void remove(Object element);
-    void removeAt(int index);
+    boolean remove(Object element);
+    boolean removeAt(int index);
 }

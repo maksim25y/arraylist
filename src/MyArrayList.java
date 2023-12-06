@@ -26,22 +26,40 @@ public class MyArrayList implements MyList{
 
     @Override
     public void add(Object element) {
-
+        if(size==array.length){
+            increaseArray();
+        }
+        array[size]=element;
+        size++;
     }
 
     @Override
     public void addAt(int index, Object element) {
-
+        if(checkIndex(index)){
+            array[index]=element;
+        }
     }
 
     @Override
-    public void remove(Object element) {
-
+    public boolean remove(Object element) {
+        for(int i=0;i<size;i++){
+            if(array[i].equals(element)){
+                return removeAt(i);
+            }
+        }
+        return false;
     }
 
     @Override
-    public void removeAt(int index) {
-
+    public boolean removeAt(int index) {
+        if(checkIndex(index)){
+            for(int i=index;i<size-1;i++){
+                array[i]=array[i+1];
+            }
+            size--;
+            return true;
+        }
+        return false;
     }
     private void increaseArray(){
         Object[]arrCopy = new Object[size*2];
